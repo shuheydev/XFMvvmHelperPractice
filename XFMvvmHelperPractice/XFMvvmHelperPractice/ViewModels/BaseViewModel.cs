@@ -43,7 +43,7 @@ namespace XFMvvmHelperPractice.ViewModels
         public bool IsNotBusy
         {
             get => _isNotBusy;
-            set => SetProperty(ref _isNotBusy, value);
+            private set => SetProperty(ref _isNotBusy, value);
         }
 
         private bool _canLoadMore;

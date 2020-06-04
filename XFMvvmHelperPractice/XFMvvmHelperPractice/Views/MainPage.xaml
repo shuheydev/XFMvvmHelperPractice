@@ -21,10 +21,32 @@
             FontSize="Medium"
             HorizontalOptions="Center"
             Text="{Binding SubTitle}" />
+        <Button Command="{Binding GetPeopleCommand}" Text="Get People" />
         <ActivityIndicator
             IsRunning="{Binding IsBusy}"
             IsVisible="{Binding IsBusy}"
             Color="Orange" />
+        <CollectionView ItemsSource="{Binding People}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Frame
+                            Margin="5"
+                            Padding="0"
+                            BackgroundColor="LightPink"
+                            CornerRadius="5">
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontSize="Medium" Text="{Binding Name, StringFormat='Name = {0}'}" />
+                                <Label Text="{Binding Age, StringFormat='Age = {0}'}" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 
 </ContentPage>
